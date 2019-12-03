@@ -1,0 +1,20 @@
+<form [formGroup]="twoNumbersForm">
+  <div class="input">
+    <label for="firstNumber">Первое число:</label>
+    <input id="firstNumber" formControlName="firstNumber" placeholder="Введите первое число"/>
+  </div>
+
+  <div class="input">
+    <label for="secondNumber">Второе число:</label>
+    <input id="secondNumber" formControlName="secondNumber" placeholder="Введите второе число"/>
+  </div>
+</form>
+
+<button (click)="countGcd()">Посчитать</button>
+
+<br />
+
+<div class="result">
+  <span>Результат: </span>
+  <span>{{ result ? result : '-' }}</span>
+</div>

@@ -1,0 +1,13 @@
+<div class="input">
+  <label for="firstNumber">Массив чисел:</label>
+  <input id="firstNumber" [formControl]="numbersInputControl" placeholder="Введите числа через запятую"/>
+</div>
+
+<button (click)="countGcd()">Посчитать</button>
+
+<br />
+
+<div class="result">
+  <span>Результат: </span>
+  <span>{{ result ? result : '-' }}</span>
+</div>
