@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { INumberListObject, IResultNumberObject } from '../models';
+import { INumberListObject, IResultObject } from '../models';
 
 @Injectable()
 export class SecondTaskService {
@@ -10,7 +10,7 @@ export class SecondTaskService {
     private http: HttpClient,
   ) { }
 
-  public numberListGcd(numberList: INumberListObject): Observable<IResultNumberObject> {
-    return this.http.post<IResultNumberObject>('/second-task/number-list-gcd', numberList);
+  public numberListGcd(numberList: INumberListObject): Observable<IResultObject> {
+    return this.http.post<IResultObject>('/second-task/number-list-gcd', numberList);
   }
 }

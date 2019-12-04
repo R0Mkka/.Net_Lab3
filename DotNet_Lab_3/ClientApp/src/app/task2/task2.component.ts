@@ -3,6 +3,8 @@ import { FormControl } from '@angular/forms';
 
 import { SecondTaskService } from '../services/second-task.service';
 
+import { IResultObject } from '../models';
+
 @Component({
   selector: 'app-task2',
   templateUrl: './task2.component.html',
@@ -10,7 +12,7 @@ import { SecondTaskService } from '../services/second-task.service';
 })
 export class Task2Component implements OnInit {
   public numbersInputControl: FormControl;
-  public result: number = null;
+  public result: IResultObject = null;
 
   constructor(
     private secondTaskService: SecondTaskService,
@@ -20,11 +22,19 @@ export class Task2Component implements OnInit {
     this.initControl();
   }
 
+  public get resultNumber(): string {
+    return !!this.result ? `${this.result.resultNumber}` : '-';
+  }
+
+  public get spentTime(): string {
+    return !!this.result ? `${this.result.spentTime}` : '-';
+  }
+
   public countGcd(): void {
     this.secondTaskService.numberListGcd({
       numberList: this.getNumbersFromString(this.numbersInputControl.value),
     })
-    .subscribe(({ resultNumber }) => this.result = resultNumber);
+      .subscribe((resultObject: IResultObject) => this.result = resultObject);
   }
 
   private getNumbersFromString(numberListAsString: string): number[] {

@@ -1,5 +1,6 @@
-export interface IResultNumberObject {
+export interface IResultObject {
   resultNumber: number;
+  spentTime: string;
 }
 
 export interface ITwoNumbersObject {

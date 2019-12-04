@@ -9,13 +9,11 @@ namespace DotNet_Lab_3.Controllers
     public class ThirdTaskController : Controller
     {
         [HttpPost("gcd-binary")]
-        public IActionResult gcd([FromBody]TwoNumbersObject data)
+        public IActionResult gcdBinary([FromBody]TwoNumbersObject data)
         {
             if (ModelState.IsValid)
             {
-                Int32 result = Helper.gcdBinary(data.firstNumber, data.secondNumber);
-
-                ResultObject resultObject = new ResultObject(result);
+                ResultObject resultObject = Helper.gcdBinary(data.firstNumber, data.secondNumber);
 
                 return Ok(resultObject);
             }

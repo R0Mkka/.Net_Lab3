@@ -13,9 +13,7 @@ namespace DotNet_Lab_3.Controllers
         {
             if (ModelState.IsValid)
             {
-                Int32 result = Helper.gcd(data.numberList);
-
-                ResultObject resultObject = new ResultObject(result);
+                ResultObject resultObject = Helper.gcd(data.numberList);
 
                 return Ok(resultObject);
             }

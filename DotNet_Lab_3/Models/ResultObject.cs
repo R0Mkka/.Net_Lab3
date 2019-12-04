@@ -9,9 +9,12 @@ namespace DotNet_Lab_3.Models
     {
         public Int32 resultNumber { get; set; }
 
-        public ResultObject(Int32 resultNumber)
+        public TimeSpan spentTime { get; set; }
+
+        public ResultObject(Int32 resultNumber, TimeSpan spentTime)
         {
             this.resultNumber = resultNumber;
+            this.spentTime = spentTime;
         }
     }
 }

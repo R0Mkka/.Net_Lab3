@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { ITwoNumbersObject, IResultNumberObject } from '../models';
+import { ITwoNumbersObject, IResultObject } from '../models';
 
 @Injectable()
 export class FirstTaskService {
@@ -10,7 +10,7 @@ export class FirstTaskService {
     private http: HttpClient,
   ) { }
 
-  public gcd(twoNumberObject: ITwoNumbersObject): Observable<IResultNumberObject> {
-    return this.http.post<IResultNumberObject>('/first-task/gcd', twoNumberObject);
+  public gcd(twoNumberObject: ITwoNumbersObject): Observable<IResultObject> {
+    return this.http.post<IResultObject>('/first-task/gcd', twoNumberObject);
   }
 }

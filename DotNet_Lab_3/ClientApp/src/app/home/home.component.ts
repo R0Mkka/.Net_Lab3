@@ -3,6 +3,8 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 
 import { FirstTaskService } from '../services/first-task.service';
 
+import { IResultObject } from '../models';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -10,7 +12,7 @@ import { FirstTaskService } from '../services/first-task.service';
 })
 export class HomeComponent implements OnInit {
   public twoNumbersForm: FormGroup;
-  public result: number = null;
+  public result: IResultObject = null;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -21,9 +23,17 @@ export class HomeComponent implements OnInit {
     this.initForm();
   }
 
+  public get resultNumber(): string {
+    return !!this.result ? `${this.result.resultNumber}` : '-';
+  }
+
+  public get spentTime(): string {
+    return !!this.result ? `${this.result.spentTime}` : '-';
+  }
+
   public countGcd(): void {
     this.firstTaskService.gcd(this.twoNumbersForm.value)
-      .subscribe(({ resultNumber }) => this.result = resultNumber);
+      .subscribe((resultObject: IResultObject) => this.result = resultObject);
   }
 
   private initForm(): void {
